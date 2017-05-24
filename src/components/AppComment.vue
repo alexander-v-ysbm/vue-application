@@ -46,7 +46,7 @@
           comment: this.textarea
         }
         if (!this.showError) {
-          this.$store.state.reviews.push(review)
+          this.$store.dispatch('addReview', review)
           this.$router.push('/')
         }
       },

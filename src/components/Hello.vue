@@ -9,14 +9,13 @@
 </template>
 
 <script>
-export default {
-  name: 'hello',
-  computed: {
-    reviews () {
-      return this.$store.state.reviews
-    }
+  import { mapGetters } from 'vuex'
+  export default {
+    name: 'hello',
+    computed: mapGetters({
+      reviews: 'getReviews'
+    })
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
