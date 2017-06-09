@@ -6,18 +6,15 @@
       </router-link>
     </div>
     <div class="app-top-menu" is="app-top-menu"></div>
+    <div class="app-top-login-menu" is="app-top-login-menu"></div>
   </div>
 </template>
 
 <script>
   import AppTopMenu from '@/components/Menus/AppTopMenu'
+  import AppTopLoginMenu from '@/components/Menus/AppTopLoginMenu'
   export default {
-    components: {AppTopMenu},
-    data () {
-      return {
-        msg: 'App Header'
-      }
-    }
+    components: {AppTopMenu, AppTopLoginMenu}
   }
 </script>
 
@@ -38,8 +35,12 @@
     height:60px;
   }
   .app-top-menu {
-    width:80%;
-    float:right;
+    width:50%;
+    float: left;
     padding: 0;
+  }
+  .app-top-login-menu {
+    width:30%;
+    float: left;
   }
 </style>
