@@ -6,6 +6,8 @@ import AppComment from '@/components/AppComment'
 import AppLogin from '@/components/AppLogin'
 import AppRegister from '@/components/AppRegister'
 import AppLogout from '@/components/AppLogout'
+import AppPosts from '@/components/Blog/AppPosts'
+import AppSinglePost from '@/components/Blog/AppSinglePost'
 
 Vue.use(Router)
 
@@ -22,7 +24,7 @@ export default new Router({
       component: AppAbout
     },
     {
-      path: '/comment',
+      path: '/comments',
       name: 'AppComment',
       component: AppComment
     },
@@ -40,6 +42,16 @@ export default new Router({
       path: '/logout',
       name: 'AppLogout',
       component: AppLogout
+    },
+    {
+      path: '/blog',
+      name: 'AppPosts',
+      component: AppPosts
+    },
+    {
+      path: '/blog/post/:slug',
+      name: 'single-post',
+      component: AppSinglePost
     }
   ],
   mode: 'history'

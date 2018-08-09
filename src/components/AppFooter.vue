@@ -17,10 +17,9 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
  .app-footer {
+   float: left;
    background: #848484;
    border-top:1px solid #636363;
-   position: fixed;
-   bottom:0;
    width: 100%;
    padding: 5px;
  }

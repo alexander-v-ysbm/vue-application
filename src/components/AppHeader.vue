@@ -13,6 +13,7 @@
 <script>
   import AppTopMenu from '@/components/Menus/AppTopMenu'
   import AppTopLoginMenu from '@/components/Menus/AppTopLoginMenu'
+
   export default {
     components: {AppTopMenu, AppTopLoginMenu}
   }
@@ -26,6 +27,7 @@
     border-bottom: 1px solid #b4b4b4;
     padding: 5px;
     height:60px;
+    float: left;
   }
   .app-top-logo {
     width:20%;
@@ -40,6 +42,7 @@
     padding: 0;
   }
   .app-top-login-menu {
+    overflow: hidden;
     width:30%;
     float: left;
   }

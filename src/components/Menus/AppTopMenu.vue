@@ -12,11 +12,11 @@
   export default {
     data () {
       return {
-        menu: 'App Top menu',
         items: [
           { link: '/', message: 'Home' },
           { link: '/about', message: 'About' },
-          { link: '/comment', message: 'Comment' }
+          { link: '/blog', message: 'Blog' },
+          { link: '/comments', message: 'Comments' }
         ]
       }
     }

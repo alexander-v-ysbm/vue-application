@@ -1,36 +1,49 @@
 <template>
-  <div id="comment-box">
-    <div v-if="showError" class="row show-error">
-      <p>{{ showError }}</p>
-    </div>
-    <div class="row">
-      <label for="name">Name</label>
-      <input v-model="name" id="name" name="name" @input="cutStringTo10" type="text">
-    </div>
-    <div class="row">
-      <label for="comment">Comment</label>
-      <textarea
-      v-model="textarea"
-      name="comment" id="comment" cols="30" rows="10">
-      </textarea>
-    </div>
-    <div class="row">
-    <button @click="addComment">Comment</button>
-    </div>
-    <div class="row" v-if="name != '' || textarea !=''">
-      <p>You({{ name | maxSymbols }}) say: {{ textarea }}</p>
-    </div>
-    <div class="row alert-msg" v-else>
-      Please write your comment
-    </div>
-  </div>
+  <b-row id="comment-box">
+    <b-col>
+      <b-row is="app-reviews"></b-row>
+      <b-row v-if="showError" class="show-error">
+        <b-col>{{ showError }}</b-col>
+      </b-row>
+      <b-row>
+        <b-col>
+          <label for="name">Name</label>
+          <input v-model="name" id="name" name="name" @input="cutStringTo10" type="text">
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col>
+          <label for="comment">Comment</label>
+          <textarea
+          v-model="textarea"
+          name="comment" id="comment" cols="30" rows="10">
+          </textarea>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col>
+          <button @click="addComment">Comment</button>
+        </b-col>
+      </b-row>
+      <b-row v-if="name != '' || textarea !=''">
+        <b-col>
+          <p>You({{ name | maxSymbols }}) say: {{ textarea }}</p>
+        </b-col>
+      </b-row>
+      <b-row class="alert-msg" v-else>
+        <b-col>
+        Please write your comment
+        </b-col>
+      </b-row>
+    </b-col>
+  </b-row>
 </template>
 
 <script>
-  import Hello from '@/components/Hello'
+  import AppReviews from '@/components/AppReviews'
   export default {
     name: 'comment',
-    components: { Hello },
+    components: { AppReviews },
     data () {
       return {
         name: '',
@@ -41,13 +54,12 @@
     },
     methods: {
       addComment: function () {
-        var review = {
+        let review = {
           name: this.name,
           comment: this.textarea
         }
         if (!this.showError) {
           this.$store.dispatch('addReview', review)
-          this.$router.push('/')
         }
       },
       cutStringTo10: function () {
@@ -69,15 +81,7 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   #comment-box {
-    padding: 45px 0;
-    width:300px;
     margin:0 auto;
-  }
-  .row {
-    float:left;
-    width:100%;
-    text-align: left;
-    padding:5px 15px;
   }
   .row label {
     width:200px;

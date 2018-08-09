@@ -1,51 +1,37 @@
 import Vue from 'vue'
 const state = {
-  users: [
-    {name: 'Alexander', login: 'alexvap23', password: '12345678'}
-  ],
-  signIn: 0
+  user: []
 }
 
 const getters = {
-  signInCheck (state) {
-    return state.signIn
-  },
   checkUser (state) {
-    if (state.signIn) {
-      if (Vue.cookie.get('user')) {
-        var name = Vue.cookie.get('user')
-        return name
-      } else {
-        state.signIn = 0
-        this.$router.push('/login')
-      }
+    console.log(state.user)
+    if (state.user.name) {
+      console.log('12312312')
+      return 'Alex ' + state.user.name[0]
     }
     return false
   }
 }
 
 const actions = {
-  signIn ({state}, user) {
-    for (var u in state.users) {
-      if (state.users[u].login === user.login) {
-        if (state.users[u].password === user.password) {
-          state.signIn = 1
-        }
-      }
-    }
-  },
-  logOut ({state}) {
-    Vue.cookie.delete('user')
-    state.signIn = 0
+  logOut ({ commit }) {
+    let user = []
+    commit('addUser', user)
+    Vue.cookie.delete('token')
   },
   signUp ({ commit }, user) {
+    user.name = Vue.cookie.get('token')
+    Vue.cookie.get('token')
     commit('addUser', user)
   }
 }
 
 const mutations = {
   addUser (state, user) {
-    state.users.push(user)
+    state.user = user
+    console.log(user)
+    console.log(state.user)
   }
 }
 
